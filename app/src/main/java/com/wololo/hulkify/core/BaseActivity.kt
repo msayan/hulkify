@@ -7,17 +7,19 @@ import android.os.Bundle
 import android.support.annotation.LayoutRes
 import android.support.v7.app.AppCompatActivity
 
-abstract class BaseActivity<VM : BaseViewModel, DB : ViewDataBinding>(private val mViewModelClass: Class<VM>) : AppCompatActivity() {
+abstract class BaseActivity<VM : BaseViewModel, DB : ViewDataBinding> : AppCompatActivity() {
 
     @LayoutRes
     abstract fun getLayoutRes(): Int
+
+    abstract fun getViewModelKey(): Class<VM>
 
     val binding by lazy {
         DataBindingUtil.setContentView(this, getLayoutRes()) as DB
     }
 
     val viewModel by lazy {
-        ViewModelProviders.of(this).get(mViewModelClass)
+        ViewModelProviders.of(this).get(getViewModelKey())
     }
 
     /**

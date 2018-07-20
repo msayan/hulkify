@@ -6,21 +6,20 @@ import android.databinding.ViewDataBinding
 import android.os.Bundle
 import android.support.annotation.LayoutRes
 import android.support.v4.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 
-abstract class BaseFragment<VM : BaseViewModel, DB : ViewDataBinding>(private val mViewModelClass: Class<VM>) : Fragment() {
+abstract class BaseFragment<VM : BaseViewModel, DB : ViewDataBinding> : Fragment() {
 
     @LayoutRes
     abstract fun getLayoutRes(): Int
+
+    abstract fun getViewModelKey(): Class<VM>
 
     val binding by lazy {
         DataBindingUtil.setContentView(activity!!, getLayoutRes()) as DB
     }
 
     val viewModel by lazy {
-        ViewModelProviders.of(this).get(mViewModelClass)
+        ViewModelProviders.of(this).get(getViewModelKey())
     }
 
     /**
