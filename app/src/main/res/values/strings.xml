@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Hulkify</string>
+    <string name="position" translatable="false">position</string>
+    <string name="title">Title</string>
+</resources>
