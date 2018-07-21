@@ -85,7 +85,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:layout_margin="8dp"
+            android:layout_marginBottom="16dp"
             android:background="@drawable/red_button_radius"
             android:foreground="?selectableItemBackgroundBorderless"
             android:gravity="center"

@@ -26,7 +26,7 @@
             android:layout_height="56dp"
             android:layout_gravity="bottom"
             android:background="@color/colorPrimaryBruce"
-            android:elevation="@dimen/cardview_default_elevation"
+            android:elevation="6dp"
             android:paddingTop="8dp"
             app:itemIconTint="@drawable/bottombar_selector"
             app:menu="@menu/home_bottom_menu" />

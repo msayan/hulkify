@@ -6,7 +6,7 @@ import android.support.v4.content.ContextCompat
 import com.wololo.hulkify.R
 import com.wololo.hulkify.core.BaseViewModel
 import com.wololo.hulkify.pojo.CalendarEntity
-import com.wololo.hulkify.ui.game.GameActivity
+import com.wololo.hulkify.ui.loki.LokiActivity
 
 class DashboardViewModel(app: Application) : BaseViewModel(app) {
 
@@ -22,7 +22,7 @@ class DashboardViewModel(app: Application) : BaseViewModel(app) {
     }
 
     fun beatLoki() {
-        openActivity(GameActivity::class.java)
+        openActivity(LokiActivity::class.java)
     }
 
     private fun openActivity(activity: Class<*>) {

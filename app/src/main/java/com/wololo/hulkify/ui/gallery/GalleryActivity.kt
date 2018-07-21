@@ -1,7 +1,10 @@
 package com.wololo.hulkify.ui.gallery
 
+import android.animation.AnimatorSet
+import android.animation.ObjectAnimator
+import android.animation.PropertyValuesHolder
 import android.os.Bundle
-import android.view.MenuItem
+import android.os.Handler
 import android.view.View
 import android.view.animation.*
 import com.squareup.picasso.Picasso
@@ -59,7 +62,9 @@ class GalleryActivity : BaseActivity<GalleryViewModel, ActivityGalleryBinding>()
             }
 
             override fun onCardSwiped(direction: SwipeDirection?) {
+                binding.favorite.isChecked = true
                 matched()
+
             }
 
             override fun onCardReversed() {
@@ -72,6 +77,42 @@ class GalleryActivity : BaseActivity<GalleryViewModel, ActivityGalleryBinding>()
             }
 
         })
+
+        binding.favorite.setOnClickListener {
+            swipeRight()
+        }
+    }
+
+
+    private fun changeChecked() {
+        Handler().postDelayed({ binding.favorite.isChecked = false }, 100)
+    }
+
+    private fun swipeRight() {
+
+        val target = binding.stackView.topView
+        val targetOverlay = binding.stackView.topView.overlayContainer
+
+        val rotation = ObjectAnimator.ofPropertyValuesHolder(
+                target, PropertyValuesHolder.ofFloat("rotation", 10f))
+        rotation.duration = 200
+        val translateX = ObjectAnimator.ofPropertyValuesHolder(
+                target, PropertyValuesHolder.ofFloat("translationX", 0f, 2000f))
+        val translateY = ObjectAnimator.ofPropertyValuesHolder(
+                target, PropertyValuesHolder.ofFloat("translationY", 0f, 500f))
+        translateX.startDelay = 100
+        translateY.startDelay = 100
+        translateX.duration = 500
+        translateY.duration = 500
+        val cardAnimationSet = AnimatorSet()
+        cardAnimationSet.playTogether(rotation, translateX, translateY)
+
+        val overlayAnimator = ObjectAnimator.ofFloat(targetOverlay, "alpha", 0f, 1f)
+        overlayAnimator.duration = 200
+        val overlayAnimationSet = AnimatorSet()
+        overlayAnimationSet.playTogether(overlayAnimator)
+
+        binding.stackView.swipe(SwipeDirection.Right, cardAnimationSet, overlayAnimationSet)
     }
 
     private fun matched() {
@@ -88,6 +129,7 @@ class GalleryActivity : BaseActivity<GalleryViewModel, ActivityGalleryBinding>()
                         topItem++
                         binding.matchContainer.clearAnimation()
                         binding.matchContainer.visibility = View.GONE
+                        changeChecked()
                     }
                 }).start()
             }

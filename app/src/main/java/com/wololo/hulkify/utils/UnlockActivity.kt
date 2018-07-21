@@ -7,7 +7,7 @@ import android.os.Bundle
 import android.os.PowerManager
 import android.support.v7.app.AppCompatActivity
 import android.view.WindowManager
-import com.wololo.hulkify.ui.main.MainActivity
+import com.wololo.hulkify.ui.hulk.HulkHomeActivity
 
 @Suppress("DEPRECATION")
 class UnlockActivity : AppCompatActivity() {
@@ -16,7 +16,7 @@ class UnlockActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         unlockScreen()
         turnScreenOn()
-        startActivity(Intent(this, MainActivity::class.java))
+        startActivity(Intent(this, HulkHomeActivity::class.java))
         finish()
     }
 

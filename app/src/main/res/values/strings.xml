@@ -13,4 +13,6 @@
     <string name="listen_music">Müzik Dinle\n(1)</string>
     <string name="calm">Sakin</string>
     <string name="angry">Sinirli</string>
+    <string name="bruce">Bruce</string>
+    <string name="hulk">Hulk</string>
 </resources>
