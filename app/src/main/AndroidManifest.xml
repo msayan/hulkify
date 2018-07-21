@@ -40,6 +40,7 @@
         <activity android:name=".ui.game.GameActivity" />
         <activity
             android:name=".ui.bruce.HomeActivity"
+            android:windowSoftInputMode="adjustPan"
             android:theme="@style/AppTheme.Bruce" />
         <activity android:name=".ui.hulk.HulkHomeActivity" />
 

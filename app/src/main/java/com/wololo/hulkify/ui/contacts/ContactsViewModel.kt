@@ -23,7 +23,7 @@ class ContactsViewModel(application: Application) : BaseViewModel(application) {
 
 
     fun filterList(newText: String) {
-        val filterList = contactList.filter { it.name.contains(newText) }
+        val filterList = contactList.filter { it.name.toLowerCase().contains(newText.toLowerCase()) }
         contactsLiveData.value = filterList
     }
 
