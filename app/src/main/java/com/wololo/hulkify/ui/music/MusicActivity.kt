@@ -23,11 +23,11 @@ class MusicActivity : BaseActivity<MusicViewModel, ActivityMusicBinding>() {
 
         binding.musicImage.startAnimation(rotate)
 
-        viewModel.playSound()
+        viewModel.executePlayer()
     }
 
     private fun initListeners() {
-        binding.playButton.setOnClickListener { viewModel.playSound() }
+        binding.playButton.setOnClickListener { viewModel.executePlayer() }
     }
 
     override fun getLayoutRes(): Int {

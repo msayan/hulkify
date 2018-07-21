@@ -8,6 +8,7 @@ import android.os.CountDownTimer
 import android.support.v4.content.ContextCompat
 import com.wololo.hulkify.R
 import com.wololo.hulkify.core.BaseViewModel
+import com.wololo.hulkify.utils.extensions.logW
 
 class MusicViewModel(val app: Application) : BaseViewModel(app) {
 
@@ -16,12 +17,20 @@ class MusicViewModel(val app: Application) : BaseViewModel(app) {
     val imageResource: ObservableField<Drawable> = ObservableField(ContextCompat.getDrawable(app, R.drawable.ic_play_circle_filled_black_24dp)!!)
 
     lateinit var timer: CountDownTimer
+    val player = MediaPlayer.create(app, R.raw.black_widow)
 
-    fun playSound() {
-        playLayout()
+    fun executePlayer() {
 
-        val player = MediaPlayer.create(app, R.raw.wololo)
+        if (player.isPlaying) {
+            player.pause()
+            timer.cancel()
+            playLayout()
+            return
+        }
+
+        player.seekTo(player.currentPosition)
         player.start()
+        pauseLayout()
 
         timer = object : CountDownTimer(player.duration.toLong(), 1000) {
             override fun onFinish() = playLayout()
@@ -45,8 +54,11 @@ class MusicViewModel(val app: Application) : BaseViewModel(app) {
     }
 
     fun remainingTime(player: MediaPlayer): String {
-        val seconds = (player.duration - player.currentPosition) / 1000.0
+        var seconds = (player.duration - player.currentPosition) / 1000.0
         val minutes = (seconds / 60)
+        if (seconds > 60) {
+            seconds = seconds % 60
+        }
         return if (seconds < 10)
             "0${minutes.toInt()} : 0${seconds.toInt()}"
         else
