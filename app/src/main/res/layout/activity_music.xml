@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout>
 
     <data>
 
@@ -8,45 +8,62 @@
             type="com.wololo.hulkify.ui.music.MusicViewModel" />
     </data>
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@android:color/white"
         android:orientation="vertical">
 
+
         <ImageView
-            android:background="@android:color/transparent"
-            android:id="@+id/music_image"
+            android:id="@+id/imageview_back"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="top|start"
+            android:layout_margin="16dp"
+            android:background="?selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_arrow_back_black_24dp" />
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="256dp"
-            android:layout_gravity="center"
-            android:src="@drawable/redgirl" />
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="28dp"
-            android:text="@{viewModel.playingText}"
-            android:textColor="#000000"
-            android:textSize="36sp" />
+            <ImageView
+                android:id="@+id/music_image"
+                android:layout_width="match_parent"
+                android:layout_height="256dp"
+                android:layout_gravity="center"
+                android:background="@android:color/transparent"
+                android:src="@drawable/redgirl" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="@{viewModel.remainingTime}"
-            android:textColor="#b92e05"
-            android:textSize="32sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="28dp"
+                android:text="@{viewModel.playingText}"
+                android:textColor="#000000"
+                android:textSize="36sp" />
 
-        <ImageButton
-            android:id="@+id/play_button"
-            android:layout_width="96dp"
-            android:layout_height="96dp"
-            android:layout_gravity="center"
-            android:layout_marginBottom="24dp"
-            android:layout_marginTop="28dp"
-            android:background="@android:color/transparent"
-            android:scaleType="fitCenter"
-            android:src="@{viewModel.imageResource}" />
-    </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@{viewModel.remainingTime}"
+                android:textColor="#b92e05"
+                android:textSize="32sp" />
+
+            <ImageButton
+                android:id="@+id/play_button"
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="24dp"
+                android:layout_marginTop="28dp"
+                android:background="?selectableItemBackgroundBorderless"
+                android:scaleType="fitCenter"
+                android:src="@{viewModel.imageResource}" />
+        </LinearLayout>
+    </FrameLayout>
 </layout>
