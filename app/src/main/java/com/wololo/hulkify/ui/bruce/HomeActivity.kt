@@ -36,7 +36,7 @@ class HomeActivity : BaseActivity<HomeViewModel, ActivityHomeBinding>() {
                 else -> fragment = DashboardFragment() // TODO : inbox fragment
             }
 
-            supportFragmentManager.beginTransaction().add(R.id.container, fragment, "").commit()
+            supportFragmentManager.beginTransaction().replace(R.id.container, fragment).commit()
         }
 
     }
