@@ -73,9 +73,9 @@ class MusicViewModel(val app: Application) : BaseViewModel(app) {
                 seconds %= 60
             }
             if (seconds < 10)
-                "0${minutes.toInt()} : 0${seconds.toInt()}"
+                "0${minutes.toInt()}:0${seconds.toInt()}"
             else
-                "0${minutes.toInt()} : ${seconds.toInt()}"
+                "0${minutes.toInt()}:${seconds.toInt()}"
         } else
             emptyString()
     }

@@ -18,7 +18,7 @@ class MusicActivity : BaseActivity<MusicViewModel, ActivityMusicBinding>() {
         initListeners()
 
         animator = ObjectAnimator.ofFloat(binding.musicImage, "rotation", 0f, 360f).apply {
-            duration = 5000
+            duration = 7000
             interpolator = LinearInterpolator()
             repeatCount = Animation.INFINITE
             start()
