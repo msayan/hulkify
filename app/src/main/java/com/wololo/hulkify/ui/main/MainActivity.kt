@@ -11,6 +11,7 @@ import com.wololo.hulkify.R
 import com.wololo.hulkify.core.BaseActivity
 import com.wololo.hulkify.databinding.ActivityMainBinding
 import com.wololo.hulkify.ui.game.GameActivity
+import com.wololo.hulkify.ui.loki.LokiActivity
 import com.wololo.hulkify.ui.music.MusicActivity
 import com.wololo.hulkify.utils.extensions.hasOreo
 import com.wololo.hulkify.utils.service.SensorService
