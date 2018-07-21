@@ -81,7 +81,8 @@
             android:layout_gravity="start|bottom"
             android:layout_margin="16dp"
             android:background="@android:color/transparent"
-            android:src="@drawable/group" />
+            android:src="@drawable/group"
+            android:visibility="gone" />
 
         <ImageButton
             android:id="@+id/right_fist"
@@ -90,7 +91,8 @@
             android:layout_gravity="end|bottom"
             android:layout_margin="16dp"
             android:background="@android:color/transparent"
-            android:src="@drawable/group_2" />
+            android:src="@drawable/group_2"
+            android:visibility="gone" />
 
     </FrameLayout>
 

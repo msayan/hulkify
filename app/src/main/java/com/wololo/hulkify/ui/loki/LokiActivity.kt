@@ -63,6 +63,8 @@ class LokiActivity : AppCompatActivity() {
     }
 
     private fun setListenerss() {
+        leftPunch.visibility = View.VISIBLE
+        rightPunch.visibility = View.VISIBLE
         leftPunch.setOnClickListener { punchFromLeft() }
         rightPunch.setOnClickListener { punchFromRight() }
     }
