@@ -33,17 +33,25 @@
         </activity>
         <activity android:name=".utils.UnlockActivity" />
 
-        <activity android:name=".ui.music.MusicActivity" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".ui.music.MusicActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
 
-        <activity android:name=".ui.gallery.GalleryActivity" android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ui.gallery.GalleryActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
 
         <activity android:name=".ui.game.GameActivity" />
         <activity
             android:name=".ui.bruce.HomeActivity"
-            android:windowSoftInputMode="adjustPan"
-            android:theme="@style/AppTheme.Bruce" />
-        <activity android:name=".ui.hulk.HulkHomeActivity" />
-        <activity android:name=".ui.loki.LokiActivity" android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.Bruce"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".ui.hulk.HulkHomeActivity"
+            android:theme="@style/AppTheme.FullScreen" />
+        <activity
+            android:name=".ui.loki.LokiActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
 
         <!--TODO:put your fabric api key here-->
         <meta-data
