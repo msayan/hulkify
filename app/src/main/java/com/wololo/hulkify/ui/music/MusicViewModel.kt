@@ -8,30 +8,19 @@ import android.os.CountDownTimer
 import android.support.v4.content.ContextCompat
 import com.wololo.hulkify.R
 import com.wololo.hulkify.core.BaseViewModel
-import com.wololo.hulkify.utils.extensions.logW
+import com.wololo.hulkify.utils.extensions.emptyString
 
 class MusicViewModel(val app: Application) : BaseViewModel(app) {
 
     val playingText: ObservableField<String> = ObservableField()
     val remainingTime: ObservableField<String> = ObservableField()
     val imageResource: ObservableField<Drawable> = ObservableField(ContextCompat.getDrawable(app, R.drawable.ic_play_circle_filled_black_24dp)!!)
+    lateinit var playListener: PlayListener
+    private var timer: CountDownTimer
+    private val player = MediaPlayer.create(app, R.raw.black_widow)
 
-    lateinit var timer: CountDownTimer
-    val player = MediaPlayer.create(app, R.raw.black_widow)
 
-    fun executePlayer() {
-
-        if (player.isPlaying) {
-            player.pause()
-            timer.cancel()
-            playLayout()
-            return
-        }
-
-        player.seekTo(player.currentPosition)
-        player.start()
-        pauseLayout()
-
+    init {
         timer = object : CountDownTimer(player.duration.toLong(), 1000) {
             override fun onFinish() = playLayout()
 
@@ -39,8 +28,31 @@ class MusicViewModel(val app: Application) : BaseViewModel(app) {
                 pauseLayout()
                 remainingTime.set(remainingTime(player))
             }
-        }.start()
+        }
+    }
 
+
+    override fun onCleared() {
+        super.onCleared()
+        player.pause()
+        player.reset()
+        player.release()
+        timer.cancel()
+    }
+
+    fun executePlayer() {
+        if (player.isPlaying) {
+            playListener.onPause()
+            player.pause()
+            timer.cancel()
+            playLayout()
+            return
+        }
+        player.seekTo(player.currentPosition)
+        player.start()
+        pauseLayout()
+        timer.start()
+        playListener.onPlay()
     }
 
     fun playLayout() {
@@ -54,14 +66,22 @@ class MusicViewModel(val app: Application) : BaseViewModel(app) {
     }
 
     fun remainingTime(player: MediaPlayer): String {
-        var seconds = (player.duration - player.currentPosition) / 1000.0
-        val minutes = (seconds / 60)
-        if (seconds > 60) {
-            seconds = seconds % 60
-        }
-        return if (seconds < 10)
-            "0${minutes.toInt()} : 0${seconds.toInt()}"
-        else
-            "0${minutes.toInt()} : ${seconds.toInt()}"
+        return if (player.isPlaying) {
+            var seconds = (player.duration - player.currentPosition) / 1000.0
+            val minutes = (seconds / 60)
+            if (seconds > 60) {
+                seconds %= 60
+            }
+            if (seconds < 10)
+                "0${minutes.toInt()} : 0${seconds.toInt()}"
+            else
+                "0${minutes.toInt()} : ${seconds.toInt()}"
+        } else
+            emptyString()
+    }
+
+    interface PlayListener {
+        fun onPause()
+        fun onPlay()
     }
 }
