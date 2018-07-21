@@ -9,5 +9,9 @@
     <color name="colorPrimaryDarkBruce">#4fa94a</color>
     <color name="colorAccentBruce">#4fa94a</color>
 
+    <color name="pink">#ffcdcd</color>
+    <color name="blue">#cdf6ff</color>
+    <color name="yellow">#fff1cd</color>
+
     <color name="white">#FFFFFF</color>
 </resources>

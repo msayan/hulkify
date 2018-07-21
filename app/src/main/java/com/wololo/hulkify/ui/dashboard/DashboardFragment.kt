@@ -29,6 +29,10 @@ class DashboardFragment : BaseFragment<DashboardViewModel, ActivityDashboardBind
     private fun init() {
         binding.calendarRecycler.adapter = DashboardAdapter()
         (binding.calendarRecycler.adapter as BaseAdapter<CalendarEntity>).submitList(viewModel.getCalendar())
+
+        binding.backButton.setOnClickListener {
+            activity?.finish()
+        }
     }
 
 }
