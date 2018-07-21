@@ -10,6 +10,7 @@ import android.widget.ImageView
 import com.wololo.hulkify.R
 import com.wololo.hulkify.core.BaseActivity
 import com.wololo.hulkify.databinding.ActivityMainBinding
+import com.wololo.hulkify.ui.game.GameActivity
 import com.wololo.hulkify.ui.music.MusicActivity
 import com.wololo.hulkify.utils.extensions.hasOreo
 import com.wololo.hulkify.utils.service.SensorService
@@ -46,7 +47,7 @@ class MainActivity : BaseActivity<MainActivityViewModel, ActivityMainBinding>() 
     fun playSound() {
         val player = MediaPlayer.create(this, R.raw.household038);
         player.start()
-        startActivity(Intent(this,MusicActivity::class.java))
+        startActivity(Intent(this,GameActivity::class.java))
     }
 
     private fun startSensorService() {
