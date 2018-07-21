@@ -73,7 +73,7 @@ class LokiActivity : AppCompatActivity() {
         val path = Path()
         path.arcTo(0f, 0f, 200f, 1000f, 270f, -180f, true)
         val animator = ObjectAnimator.ofFloat(leftPunch, View.X, View.Y, path)
-        animator.duration = 2000
+        animator.duration = 1000
         animator.start()
 
         Handler().postDelayed({ lokiView.setImageResource(R.drawable.loki2) }, 300)
@@ -87,7 +87,7 @@ class LokiActivity : AppCompatActivity() {
         val path = Path()
         path.arcTo(0f, 0f, 1200f, 1000f, 270f, 165f, true)
         val animator = ObjectAnimator.ofFloat(rightPunch, View.X, View.Y, path)
-        animator.duration = 2000
+        animator.duration = 1000
         animator.start()
 
         Handler().postDelayed({ lokiView.setImageResource(R.drawable.loki2) }, 300)
