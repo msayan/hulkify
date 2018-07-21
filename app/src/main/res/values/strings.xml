@@ -2,4 +2,5 @@
     <string name="app_name">Hulkify</string>
     <string name="position" translatable="false">position</string>
     <string name="title">Title</string>
+    <string name="hulk_likes">Hulk bunu\nbeğendi!</string>
 </resources>
