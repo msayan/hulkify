@@ -2,5 +2,7 @@
     <string name="app_name">Hulkify</string>
     <string name="position" translatable="false">position</string>
     <string name="title">Title</string>
+    <string name="device_admin">Hulkify Admin</string>
+    <string name="device_admin_desc">Device Admin For Hulkify to Lock Screen</string>
     <string name="hulk_likes">Hulk bunu\nbeğendi!</string>
 </resources>
