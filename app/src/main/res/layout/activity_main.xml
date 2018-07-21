@@ -4,24 +4,78 @@
 
 
     <data>
+
         <variable
             name="viewModel"
             type="com.wololo.hulkify.ui.main.MainActivityViewModel" />
     </data>
 
 
-    <android.support.design.widget.CoordinatorLayout
+    <LinearLayout
         android:id="@+id/rootView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fitsSystemWindows="true"
+        android:orientation="vertical"
         tools:context=".ui.main.MainActivity">
 
-            <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="@{viewModel.appName}" />
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:onClick="@{()-> viewModel.clickHulk()}"
+            android:layout_weight="1">
 
-    </android.support.design.widget.CoordinatorLayout>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:gravity="center"
+                android:scaleType="centerCrop"
+                android:src="@drawable/hulk_pic" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#60078e00" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="HULK"
+                android:textColor="@color/white"
+                android:textSize="36sp" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:onClick="@{()-> viewModel.clickBruce()}"
+            android:layout_weight="1">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:gravity="center"
+                android:scaleType="centerCrop"
+                android:src="@drawable/bruce" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#88000000" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Bruce"
+                android:textColor="@color/white"
+                android:textSize="36sp" />
+
+        </FrameLayout>
+
+    </LinearLayout>
 </layout>

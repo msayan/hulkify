@@ -38,6 +38,7 @@
         <activity android:name=".ui.gallery.GalleryActivity" android:theme="@style/AppTheme.NoActionBar" />
 
         <activity android:name=".ui.game.GameActivity" />
+        <activity android:name=".ui.bruce.HomeActivity" />
 
         <!--TODO:put your fabric api key here-->
         <meta-data
