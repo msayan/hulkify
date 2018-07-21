@@ -4,7 +4,6 @@
 
 
     <data>
-
         <variable
             name="viewModel"
             type="com.wololo.hulkify.ui.main.MainActivityViewModel" />
