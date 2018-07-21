@@ -45,6 +45,7 @@
                         android:layout_width="48dp"
                         android:layout_height="48dp"
                         android:layout_gravity="end"
+                        android:layout_marginTop="8dp"
                         android:layout_marginEnd="16dp"
                         android:src="@drawable/ic_profile" />
 
@@ -68,7 +69,7 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginStart="24dp"
-                android:text="Bugün ajandan önemli olanları senin için getirdim"
+                android:text="Bugün ajandandan önemli olanları senin için getirdim"
                 android:textColor="#b3ffffff"
                 android:textSize="16sp" />
 
