@@ -8,19 +8,37 @@
             type="com.wololo.hulkify.ui.dashboard.DashboardViewModel" />
     </data>
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:background="@color/colorPrimaryBruce"
+        android:orientation="vertical"
+        android:theme="@style/AppTheme.Bruce">
 
         <android.support.design.widget.AppBarLayout
+            android:id="@+id/appbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/bruce_image"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_gravity="end"
+                        android:layout_marginEnd="16dp" />
+
+                </FrameLayout>
+
+            </android.support.v7.widget.Toolbar>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -46,7 +64,22 @@
         <android.support.v7.widget.RecyclerView
             android:id="@+id/calendar_recycler"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:layout_below="@+id/appbar" />
 
-    </LinearLayout>
+        <TextView
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="8dp"
+            android:background="@drawable/red_button_radius"
+            android:foreground="?selectableItemBackgroundBorderless"
+            android:gravity="center"
+            android:padding="16dp"
+            android:textSize="20sp"
+            android:text="Hulk'a Dönüş"
+            android:textColor="@color/white" />
+
+    </RelativeLayout>
 </layout>
