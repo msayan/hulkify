@@ -62,7 +62,7 @@
                 android:adjustViewBounds="true"
                 android:gravity="center"
                 android:scaleType="centerCrop"
-                android:src="@drawable/group" />
+                android:src="@drawable/spotify" />
 
             <TextView
                 android:layout_width="wrap_content"

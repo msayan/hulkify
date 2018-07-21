@@ -4,7 +4,7 @@ import android.app.Application
 import android.content.Intent
 import com.wololo.hulkify.core.BaseViewModel
 import com.wololo.hulkify.ui.gallery.GalleryActivity
-import com.wololo.hulkify.ui.game.GameActivity
+import com.wololo.hulkify.ui.loki.LokiActivity
 import com.wololo.hulkify.ui.music.MusicActivity
 
 class HulkHomeViewModel(app: Application) : BaseViewModel(app) {
@@ -14,7 +14,7 @@ class HulkHomeViewModel(app: Application) : BaseViewModel(app) {
     }
 
     fun beatLoki() {
-        openActivity(GameActivity::class.java)
+        openActivity(LokiActivity::class.java)
     }
 
     fun listenMusic() {
