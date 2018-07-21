@@ -5,9 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.wololo.hulkify.R
-import com.wololo.hulkify.core.BaseActivity
+import com.wololo.hulkify.core.BaseAdapter
 import com.wololo.hulkify.core.BaseFragment
 import com.wololo.hulkify.databinding.ActivityDashboardBinding
+import com.wololo.hulkify.pojo.CalendarEntity
 
 class DashboardFragment : BaseFragment<DashboardViewModel, ActivityDashboardBinding>() {
     override fun getLayoutRes(): Int {
@@ -28,7 +29,8 @@ class DashboardFragment : BaseFragment<DashboardViewModel, ActivityDashboardBind
     }
 
     private fun init() {
-
+        binding.calendarRecycler.adapter = DashboardAdapter()
+        (binding.calendarRecycler.adapter as BaseAdapter<CalendarEntity>).submitList(viewModel.getCalendar())
     }
 
 }

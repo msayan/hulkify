@@ -7,4 +7,9 @@ data class CalendarEntity(
         var icon: Int,
         var iconText: String,
         var bgColor: Int
-)
+) {
+
+    fun getTimeFormat(): String {
+        return if (isAm) "AM" else "PM"
+    }
+}
