@@ -11,7 +11,7 @@
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorPrimaryBruce"
+        android:background="@drawable/green_bg_gradient"
         android:orientation="vertical"
         android:theme="@style/AppTheme.Bruce">
 
@@ -56,7 +56,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
-                android:layout_marginStart="16dp"
+                android:layout_marginStart="24dp"
                 android:text="Merhaba Bruce!"
                 android:textColor="@color/white"
                 android:textSize="32sp" />
@@ -65,8 +65,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
+                android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
-                android:layout_marginStart="16dp"
+                android:layout_marginStart="24dp"
                 android:text="Bugün ajandan önemli olanları senin için getirdim"
                 android:textColor="#b3ffffff"
                 android:textSize="16sp" />

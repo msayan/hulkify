@@ -47,7 +47,7 @@ class LokiActivity : AppCompatActivity() {
             override fun run() {
                 runOnUiThread { decreaseProgress() }
             }
-        }, 0, 1000)
+        }, 0, 2000)
 
     }
 
@@ -85,7 +85,7 @@ class LokiActivity : AppCompatActivity() {
 
     private fun punchFromRight() {
         val path = Path()
-        path.arcTo(0f, 0f, 1500f, 1000f, 270f, -180f, true)
+        path.arcTo(0f, 0f, 1200f, 1000f, 270f, 165f, true)
         val animator = ObjectAnimator.ofFloat(rightPunch, View.X, View.Y, path)
         animator.duration = 2000
         animator.start()
