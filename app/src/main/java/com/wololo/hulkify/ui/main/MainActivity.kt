@@ -1,7 +1,6 @@
 package com.wololo.hulkify.ui.main
 
-import android.content.Intent
-import android.os.Bundle
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.media.MediaPlayer
 import android.os.Bundle
@@ -11,15 +10,16 @@ import android.widget.ImageView
 import com.wololo.hulkify.R
 import com.wololo.hulkify.core.BaseActivity
 import com.wololo.hulkify.databinding.ActivityMainBinding
+import com.wololo.hulkify.ui.music.MusicActivity
 import com.wololo.hulkify.utils.extensions.hasOreo
 import com.wololo.hulkify.utils.service.SensorService
-import com.wololo.hulkify.ui.music.MusicActivity
 
 class MainActivity : BaseActivity<MainActivityViewModel, ActivityMainBinding>() {
 
+    @SuppressLint("ClickableViewAccessibility")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        startSensorService()
         binding.rootView.setOnTouchListener { v, event ->
             printCrash(event.x, event.y);true
         }
@@ -49,11 +49,6 @@ class MainActivity : BaseActivity<MainActivityViewModel, ActivityMainBinding>() 
     override fun getLayoutRes() = R.layout.activity_main
 
     override fun getViewModelKey() = MainActivityViewModel::class.java
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        startSensorService()
-    }
 
     private fun startSensorService() {
         val intent = Intent(this, SensorService::class.java)
