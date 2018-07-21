@@ -16,7 +16,8 @@
         <com.yuyakaido.android.cardstackview.CardStackView
             android:id="@+id/stack_view"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:layout_marginTop="120dp" />
 
         <FrameLayout
             android:id="@+id/match_container"
@@ -62,13 +63,26 @@
             android:layout_height="48dp"
             android:layout_gravity="center_horizontal|bottom"
             android:layout_marginBottom="16dp"
-            android:src="@drawable/favorite_border_24" />
+            android:src="@drawable/ic_baseline_favorite_24" />
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
+            android:layout_height="wrap_content">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/back_button"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:padding="16dp"
+                    android:src="@drawable/ic_arrow_back_black_24dp" />
+
+            </FrameLayout>
+        </android.support.v7.widget.Toolbar>
 
     </FrameLayout>
 </layout>

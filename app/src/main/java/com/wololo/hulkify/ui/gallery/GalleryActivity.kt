@@ -39,15 +39,14 @@ class GalleryActivity : BaseActivity<GalleryViewModel, ActivityGalleryBinding>()
     }
 
     private fun init() {
-
-        setSupportActionBar(binding.toolbar)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.title = ""
+        binding.backButton.setOnClickListener {
+            finish()
+        }
 
         list.add("https://wallpapersite.com/images/pages/pic_w/813.jpg")
         list.add("https://i.ytimg.com/vi/OT2b5KzMoC0/hqdefault.jpg")
         list.add("https://vignette.wikia.nocookie.net/shipping/images/b/b9/Marvel_-_Avengers_-_Natasha_Romanoff_%28The_Avengers%29.jpg/revision/latest?cb=20131202081631")
-        list.add("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSo6XUmV0ErdgTNGNVtBMT96q-GkusdC9URjVgeD8Zl3UsjF5ZA")
+        list.add("https://pre00.deviantart.net/de7c/th/pre/i/2018/018/5/a/natasha_romanoff_by_helen_stifler-dc0dhke.png")
         list.add("https://acollectivemind.files.wordpress.com/2015/04/1scarlett-johansson.jpg")
 
         val adapter = GalleryAdapter(applicationContext)
@@ -153,14 +152,4 @@ class GalleryActivity : BaseActivity<GalleryViewModel, ActivityGalleryBinding>()
         return inFromLeft
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.getItemId()) {
-            android.R.id.home -> {
-                finish()
-                return true
-            }
-
-            else -> return super.onOptionsItemSelected(item)
-        }
-    }
 }
