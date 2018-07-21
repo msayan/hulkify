@@ -35,6 +35,7 @@
                         android:layout_width="48dp"
                         android:layout_height="48dp"
                         android:paddingBottom="8dp"
+                        android:tint="@color/white"
                         android:paddingEnd="16dp"
                         android:paddingTop="8dp"
                         android:src="@drawable/ic_arrow_back_black_24dp" />
