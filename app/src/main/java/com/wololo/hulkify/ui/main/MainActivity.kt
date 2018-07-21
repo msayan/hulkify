@@ -16,6 +16,10 @@ import com.wololo.hulkify.utils.service.SensorService
 
 class MainActivity : BaseActivity<MainActivityViewModel, ActivityMainBinding>() {
 
+    override fun getLayoutRes() = R.layout.activity_main
+
+    override fun getViewModelKey() = MainActivityViewModel::class.java
+
     @SuppressLint("ClickableViewAccessibility")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,6 +27,10 @@ class MainActivity : BaseActivity<MainActivityViewModel, ActivityMainBinding>() 
         binding.rootView.setOnTouchListener { v, event ->
             printCrash(event.x, event.y);true
         }
+    }
+
+    override fun initViewModel(viewModel: MainActivityViewModel) {
+        binding.viewModel = viewModel
     }
 
     fun printCrash(x: Float, y: Float) {
@@ -41,15 +49,6 @@ class MainActivity : BaseActivity<MainActivityViewModel, ActivityMainBinding>() 
         startActivity(Intent(this,MusicActivity::class.java))
     }
 
-
-    override fun initViewModel(viewModel: MainActivityViewModel) {
-        binding.viewModel = viewModel
-    }
-
-    override fun getLayoutRes() = R.layout.activity_main
-
-    override fun getViewModelKey() = MainActivityViewModel::class.java
-
     private fun startSensorService() {
         val intent = Intent(this, SensorService::class.java)
         if (hasOreo()) {
@@ -58,5 +57,4 @@ class MainActivity : BaseActivity<MainActivityViewModel, ActivityMainBinding>() 
             startService(intent)
         }
     }
-
 }

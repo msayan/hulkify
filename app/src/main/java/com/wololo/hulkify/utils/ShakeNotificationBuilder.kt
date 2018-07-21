@@ -1,4 +1,4 @@
-package com.wololo.hulkify.utils.service
+package com.wololo.hulkify.utils
 
 import android.app.Notification
 import android.app.NotificationChannel
@@ -17,10 +17,10 @@ import com.wololo.hulkify.ui.main.MainActivity
 import com.wololo.hulkify.utils.extensions.hasOreo
 import java.lang.ref.WeakReference
 
-const val DETECT_CHANNEL: String = "com.wololo.hulkify.utils.service.DETECT_CHANNEL"
+const val DETECT_CHANNEL: String = "com.wololo.hulkify.utils.DETECT_CHANNEL"
 const val DETECT_NOTIFICATION: Int = 0xb339
 
-class NotificationBuilder(private val contextWeakRef: WeakReference<Context>) {
+class ShakeNotificationBuilder(private val contextWeakRef: WeakReference<Context>) {
     private val context get() = contextWeakRef.get()
     private val platformNotificationManager: NotificationManager =
             context?.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
