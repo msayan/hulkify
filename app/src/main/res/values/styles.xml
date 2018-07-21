@@ -16,7 +16,14 @@
     <style name="Splash" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:windowBackground">@drawable/splash_logo</item>
     </style>
-    
+
+
+    <style name="AppTheme.Bruce" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimaryBruce</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDarkBruce</item>
+        <item name="colorAccent">@color/colorAccentBruce</item>
+    </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 

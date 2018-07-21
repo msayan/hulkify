@@ -5,5 +5,9 @@
     <color name="colorAccent">#FF4081</color>
 
 
+    <color name="colorPrimaryBruce">#4fa94a</color>
+    <color name="colorPrimaryDarkBruce">#4fa94a</color>
+    <color name="colorAccentBruce">#4fa94a</color>
+
     <color name="white">#FFFFFF</color>
 </resources>
