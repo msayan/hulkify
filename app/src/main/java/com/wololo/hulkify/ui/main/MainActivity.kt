@@ -1,5 +1,6 @@
 package com.wololo.hulkify.ui.main
 
+import android.content.Intent
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.support.design.widget.CoordinatorLayout
@@ -8,6 +9,7 @@ import android.widget.ImageView
 import com.wololo.hulkify.R
 import com.wololo.hulkify.core.BaseActivity
 import com.wololo.hulkify.databinding.ActivityMainBinding
+import com.wololo.hulkify.ui.music.MusicActivity
 
 class MainActivity : BaseActivity<MainActivityViewModel, ActivityMainBinding>() {
 
@@ -32,6 +34,7 @@ class MainActivity : BaseActivity<MainActivityViewModel, ActivityMainBinding>() 
     fun playSound() {
         val player = MediaPlayer.create(this, R.raw.household038);
         player.start()
+        startActivity(Intent(this,MusicActivity::class.java))
     }
 
 
@@ -39,7 +42,7 @@ class MainActivity : BaseActivity<MainActivityViewModel, ActivityMainBinding>() 
         binding.viewModel = viewModel
     }
 
-    override fun getLayoutRes() = R.layout.hulk_bruce
+    override fun getLayoutRes() = R.layout.activity_main
 
     override fun getViewModelKey() = MainActivityViewModel::class.java
 }

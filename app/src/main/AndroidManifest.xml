@@ -23,7 +23,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        
+
+        <activity android:name=".ui.music.MusicActivity" />
         
 
         <!--TODO:put your fabric api key here-->
