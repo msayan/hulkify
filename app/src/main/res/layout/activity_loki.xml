@@ -60,6 +60,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:background="@drawable/button_shape"
+            android:textSize="36sp"
+            android:textAllCaps="false"
             android:text="Başla!"
             android:textColor="@color/white" />
 

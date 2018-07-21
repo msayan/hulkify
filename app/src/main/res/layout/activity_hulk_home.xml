@@ -62,7 +62,7 @@
                 android:adjustViewBounds="true"
                 android:gravity="center"
                 android:scaleType="centerCrop"
-                android:src="@drawable/spotify" />
+                android:src="@drawable/groupp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -96,7 +96,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="Loki'yi Patakla"
+                android:text="@string/loki_patakla"
                 android:textColor="@color/white"
                 android:textSize="36sp" />
 
