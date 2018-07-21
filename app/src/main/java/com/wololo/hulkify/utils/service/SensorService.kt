@@ -1,21 +1,18 @@
 package com.wololo.hulkify.utils.service
 
 import android.app.Service
-import android.app.admin.DevicePolicyManager
 import android.content.Context
 import android.content.Intent
 import android.hardware.SensorManager
 import android.os.IBinder
+import com.wololo.hulkify.utils.DETECT_NOTIFICATION
 import com.wololo.hulkify.utils.ShakeDetector
 import com.wololo.hulkify.utils.ShakeDetector.Companion.SENSITIVITY_LIGHT
+import com.wololo.hulkify.utils.ShakeNotificationBuilder
 import com.wololo.hulkify.utils.UnlockActivity
 import java.lang.ref.WeakReference
 
 class SensorService : Service() {
-    private val devicePolicyManager by lazy {
-        getSystemService(Context.DEVICE_POLICY_SERVICE) as DevicePolicyManager
-    }
-
     private val sensorManager by lazy {
         getSystemService(Context.SENSOR_SERVICE) as SensorManager
     }
@@ -26,7 +23,7 @@ class SensorService : Service() {
 
     override fun onCreate() {
         super.onCreate()
-        val notification = NotificationBuilder(WeakReference(this)).build()
+        val notification = ShakeNotificationBuilder(WeakReference(this)).build()
         startForeground(DETECT_NOTIFICATION, notification)
     }
 
