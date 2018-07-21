@@ -9,10 +9,11 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="contact_search_query_hint">Avengers ekibinde ara..</string>
-    <string name="find_friend">Arkadaş Bul\n(1)</string>
-    <string name="listen_music">Müzik Dinle\n(1)</string>
+    <string name="find_friend">Natasha\'yı Bul\n(1)</string>
+    <string name="listen_music">Natasha\'yı Dinle\n(1)</string>
     <string name="calm">Sakin</string>
     <string name="angry">Sinirli</string>
+    <string name="loki_patakla">Loki\'yi Patakla\nSinirlen</string>
     <string name="bruce">Bruce</string>
     <string name="hulk">Hulk</string>
 </resources>
