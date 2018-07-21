@@ -12,13 +12,9 @@ import javax.inject.Singleton
 
 
 @Singleton
-
-
-@Component(modules = arrayOf(ApplicationModule::class,DatabaseModule::class))
-
+@Component(modules = [(ApplicationModule::class), (DatabaseModule::class)])
 interface ApplicationComponent {
     fun app(): App
-
 
     fun context(): Context
 

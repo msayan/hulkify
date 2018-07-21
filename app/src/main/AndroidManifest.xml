@@ -2,6 +2,14 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.wololo.hulkify">
 
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
+
+    <uses-feature
+        android:name="android.software.device_admin"
+        android:required="true" />
+
+
     <application
         android:name=".App"
         android:allowBackup="true"
@@ -9,13 +17,13 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
- 	
+
         <activity
             android:name=".ui.main.MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
-        <activity android:name=".ui.splash.SplashActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ui.splash.SplashActivity"
             android:theme="@style/Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,14 +31,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        
-        
+        <activity android:name=".utils.UnlockActivity" />
 
         <!--TODO:put your fabric api key here-->
         <meta-data
             android:name="io.fabric.ApiKey"
-            android:value=""  />
+            android:value="" />
 
+        <service
+            android:name=".utils.service.SensorService"
+            android:enabled="true"
+            android:exported="false" />
     </application>
 
 </manifest>
