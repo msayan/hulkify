@@ -7,6 +7,7 @@ import com.wololo.hulkify.core.BaseActivity
 import com.wololo.hulkify.databinding.ActivityHomeBinding
 import com.wololo.hulkify.ui.contacts.ContactsFragment
 import com.wololo.hulkify.ui.dashboard.DashboardFragment
+import com.wololo.hulkify.ui.inbox.InboxFragment
 
 class HomeActivity : BaseActivity<HomeViewModel, ActivityHomeBinding>() {
     override fun getLayoutRes(): Int {
@@ -32,7 +33,7 @@ class HomeActivity : BaseActivity<HomeViewModel, ActivityHomeBinding>() {
             val fragment: Fragment = when (it.itemId) {
                 R.id.home_fragment -> DashboardFragment()
                 R.id.contacts_fragment -> ContactsFragment()
-                else -> DashboardFragment() // TODO : inbox fragment
+                else -> InboxFragment()
             }
 
             this@HomeActivity.supportFragmentManager.beginTransaction().replace(R.id.fragment_container, fragment).commit()
