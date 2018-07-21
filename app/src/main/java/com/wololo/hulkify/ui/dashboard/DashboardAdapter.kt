@@ -19,7 +19,7 @@ class DashboardAdapter() : BaseAdapter<CalendarEntity>(object : DiffUtil.ItemCal
 
 }) {
     override fun createBinding(parent: ViewGroup, viewType: Int): ViewDataBinding {
-
+        return null as ViewDataBinding
     }
 
     override fun bind(binding: ViewDataBinding, position: Int) {

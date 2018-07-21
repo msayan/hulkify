@@ -14,6 +14,8 @@
         android:orientation="vertical">
 
         <ImageView
+            android:background="@android:color/transparent"
+            android:id="@+id/music_image"
             android:layout_width="match_parent"
             android:layout_height="256dp"
             android:layout_gravity="center"
@@ -24,7 +26,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="28dp"
-            android:text="Çalınıyor.."
+            android:text="@{viewModel.playingText}"
             android:textColor="#000000"
             android:textSize="36sp" />
 
@@ -32,7 +34,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="3:12"
+            android:text="@{viewModel.remainingTime}"
             android:textColor="#b92e05"
             android:textSize="32sp" />
 
@@ -45,6 +47,6 @@
             android:layout_marginTop="28dp"
             android:background="@android:color/transparent"
             android:scaleType="fitCenter"
-            android:src="@drawable/ic_play_circle_filled_black_24dp" />
+            android:src="@{viewModel.imageResource}" />
     </LinearLayout>
 </layout>
