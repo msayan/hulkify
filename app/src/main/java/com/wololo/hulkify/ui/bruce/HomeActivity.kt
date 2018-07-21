@@ -27,8 +27,8 @@ class HomeActivity : BaseActivity<HomeViewModel, ActivityHomeBinding>() {
     }
 
     private fun init() {
-
-        binding.navigation.setOnNavigationItemReselectedListener {
+        supportFragmentManager.beginTransaction().replace(R.id.container, DashboardFragment()).commit()
+        binding.navigation.setOnNavigationItemSelectedListener {
             val fragment: Fragment
             when (it.itemId) {
                 R.id.home_fragment -> fragment = DashboardFragment()
@@ -36,7 +36,8 @@ class HomeActivity : BaseActivity<HomeViewModel, ActivityHomeBinding>() {
                 else -> fragment = DashboardFragment() // TODO : inbox fragment
             }
 
-            supportFragmentManager.beginTransaction().replace(R.id.container, fragment).commit()
+            this@HomeActivity.supportFragmentManager.beginTransaction().replace(R.id.container, fragment).commit()
+            return@setOnNavigationItemSelectedListener true
         }
 
     }
