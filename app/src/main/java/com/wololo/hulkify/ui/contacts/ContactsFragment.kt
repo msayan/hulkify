@@ -32,30 +32,35 @@ class ContactsFragment : BaseFragment<ContactsViewModel, FragmentContactsBinding
     }
 
     private fun initRecyclerView() {
-        binding.recyclerviewConctacts.addItemDecoration(MarginItemDecoration(8, 1))
-        binding.recyclerviewConctacts.adapter = ContactsAdapter(object : (ConctactEntity) -> Unit {
-            override fun invoke(contact: ConctactEntity) {
-                val dialIntent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:${contact.phone}"))
-                activity?.startActivity(dialIntent)
-            }
-        })
+        binding.recyclerviewConctacts.run {
+            addItemDecoration(MarginItemDecoration(8, 1))
+            adapter = ContactsAdapter(object : (ConctactEntity) -> Unit {
+                override fun invoke(contact: ConctactEntity) {
+                    val dialIntent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:${contact.phone}"))
+                    activity?.startActivity(dialIntent)
+                }
+            })
+        }
+
     }
 
     private fun initSearchView() {
-        binding.searchView.onActionViewExpanded()
-        binding.searchView.isIconified = true
-        binding.searchView.post {
-            binding.searchView.clearFocus()
-        }
-        binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-            override fun onQueryTextChange(newText: String?): Boolean {
-                newText?.let { viewModel.filterList(newText) }
-                return true
+        binding.searchView.run {
+            onActionViewExpanded()
+            isIconified = true
+            post {
+                clearFocus()
             }
+            setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+                override fun onQueryTextChange(newText: String?): Boolean {
+                    newText?.let { viewModel.filterList(newText) }
+                    return true
+                }
 
-            override fun onQueryTextSubmit(query: String?) = false
+                override fun onQueryTextSubmit(query: String?) = false
 
-        })
+            })
+        }
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {

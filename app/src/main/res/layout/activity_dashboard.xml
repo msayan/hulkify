@@ -15,8 +15,9 @@
         android:orientation="vertical"
         android:theme="@style/AppTheme.Bruce">
 
-        <android.support.design.widget.AppBarLayout
+        <LinearLayout
             android:id="@+id/appbar"
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -69,7 +70,7 @@
                 android:textColor="@color/white"
                 android:textSize="20sp" />
 
-        </android.support.design.widget.AppBarLayout>
+        </LinearLayout>
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/calendar_recycler"
