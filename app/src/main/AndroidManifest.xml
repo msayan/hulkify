@@ -35,6 +35,8 @@
 
         <activity android:name=".ui.music.MusicActivity" />
 
+        <activity android:name=".ui.gallery.GalleryActivity" android:theme="@style/AppTheme.NoActionBar" />
+
 
         <!--TODO:put your fabric api key here-->
         <meta-data

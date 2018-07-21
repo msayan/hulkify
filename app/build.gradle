@@ -90,21 +90,13 @@ dependencies {
     implementation rootProject.ext.rxAndroid
     implementation rootProject.ext.rxKotlin
 
-    
-
-
-    
     //picasso
     implementation rootProject.ext.picasso
-    
 
-            
     //coroutines
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_version"
-            
 
-            
-
+    implementation "com.yuyakaido.android:card-stack-view:1.0.0-beta9"
 
     //arch-comp Lifecycles, LiveData, and ViewModel
     implementation "android.arch.lifecycle:extensions:$lifecycle_version"
