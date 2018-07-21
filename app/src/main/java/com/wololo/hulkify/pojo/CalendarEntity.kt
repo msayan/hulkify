@@ -12,4 +12,12 @@ data class CalendarEntity(
     fun getTimeFormat(): String {
         return if (isAm) "AM" else "PM"
     }
+
+    fun getTimeHour(): String {
+        return time.substringBefore(":")
+    }
+
+    fun getTimeMin(): String {
+        return ":${time.substringAfter(":")}"
+    }
 }
