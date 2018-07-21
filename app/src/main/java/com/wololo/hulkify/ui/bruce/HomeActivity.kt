@@ -1,6 +1,5 @@
 package com.wololo.hulkify.ui.bruce
 
-import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import com.wololo.hulkify.R
@@ -24,8 +23,6 @@ class HomeActivity : BaseActivity<HomeViewModel, ActivityHomeBinding>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        DataBindingUtil.setContentView<ActivityHomeBinding>(this, getLayoutRes())
-
         init()
     }
 

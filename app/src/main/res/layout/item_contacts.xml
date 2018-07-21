@@ -19,7 +19,6 @@
         android:clickable="true"
         android:focusable="true"
         android:orientation="vertical"
-        app:cardBackgroundColor="?selectableItemBackground"
         app:cardUseCompatPadding="true"
         app:contentPaddingBottom="8dp"
         app:contentPaddingLeft="16dp"

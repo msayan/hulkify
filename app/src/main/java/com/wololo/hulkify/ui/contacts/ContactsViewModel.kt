@@ -8,12 +8,12 @@ import com.wololo.hulkify.pojo.ConctactEntity
 
 class ContactsViewModel(application: Application) : BaseViewModel(application) {
 
-    private val contactList = listOf(ConctactEntity(R.drawable.hulk, "Tony", "0 532 321 1000"),
-            ConctactEntity(R.drawable.hulk, "Tony", "0 554 432 6666"),
-            ConctactEntity(R.drawable.hulk, "Natasha", "0 544 795 5432"),
-            ConctactEntity(R.drawable.hulk, "J.A.R.V.I.S", "Gizli Numara"),
-            ConctactEntity(R.drawable.hulk, "Spiderman", "0 533 877 2320"),
-            ConctactEntity(R.drawable.hulk, "War machine", "0 530 092 0012"))
+    private val contactList = listOf(ConctactEntity(R.drawable.tony, "Tony", "0 532 321 1000"),
+            ConctactEntity(R.drawable.tony, "Tony", "0 554 432 6666"),
+            ConctactEntity(R.drawable.natasha, "Natasha", "0 544 795 5432"),
+            ConctactEntity(R.drawable.jarvis, "J.A.R.V.I.S", "Gizli Numara"),
+            ConctactEntity(R.drawable.spiderman, "Spiderman", "0 533 877 2320"),
+            ConctactEntity(R.drawable.warmachine, "War machine", "0 530 092 0012"))
 
     val contactsLiveData = MutableLiveData<List<ConctactEntity>>()
 

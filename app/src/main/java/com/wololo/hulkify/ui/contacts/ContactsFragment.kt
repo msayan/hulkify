@@ -12,6 +12,7 @@ import com.wololo.hulkify.core.BaseAdapter
 import com.wololo.hulkify.core.BaseFragment
 import com.wololo.hulkify.databinding.FragmentContactsBinding
 import com.wololo.hulkify.pojo.ConctactEntity
+import com.wololo.hulkify.utils.MarginItemDecoration
 
 
 class ContactsFragment : BaseFragment<ContactsViewModel, FragmentContactsBinding>() {
@@ -26,6 +27,7 @@ class ContactsFragment : BaseFragment<ContactsViewModel, FragmentContactsBinding
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.setLifecycleOwner(this)
+        binding.recyclerviewConctacts.addItemDecoration(MarginItemDecoration(8, 1))
         binding.recyclerviewConctacts.adapter = ContactsAdapter(object : (ConctactEntity) -> Unit {
             override fun invoke(contact: ConctactEntity) {
                 val dialIntent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:${contact.phone}"))
