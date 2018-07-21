@@ -24,11 +24,15 @@ class GalleryAdapter(context: Context) : ArrayAdapter<String>(context, 0) {
             holder = view.getTag() as ViewHolder
         }
 
-        val url = getItem(position)
+        val url = getItem(position % 5)
 
         Picasso.get().load(url).into(holder.image)
 
         return view!!
+    }
+
+    override fun getCount(): Int {
+        return Int.MAX_VALUE
     }
 
     private class ViewHolder(view: View) {

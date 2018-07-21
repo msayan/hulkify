@@ -48,6 +48,7 @@ class GalleryActivity : BaseActivity<GalleryViewModel, ActivityGalleryBinding>()
         list.add("https://i.ytimg.com/vi/OT2b5KzMoC0/hqdefault.jpg")
         list.add("https://vignette.wikia.nocookie.net/shipping/images/b/b9/Marvel_-_Avengers_-_Natasha_Romanoff_%28The_Avengers%29.jpg/revision/latest?cb=20131202081631")
         list.add("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSo6XUmV0ErdgTNGNVtBMT96q-GkusdC9URjVgeD8Zl3UsjF5ZA")
+        list.add("https://acollectivemind.files.wordpress.com/2015/04/1scarlett-johansson.jpg")
 
         val adapter = GalleryAdapter(applicationContext)
         adapter.addAll(list)
@@ -119,7 +120,7 @@ class GalleryActivity : BaseActivity<GalleryViewModel, ActivityGalleryBinding>()
 
         Picasso.get().load("https://cdn7.bigcommerce.com/s-ydriczk/products/87194/images/88282/The_Hulk_Marvel_Avengers_Party_Face_Mask_buy_star_masks_at_starstills__65945.1412245326.450.659.jpg?c=2").transform(CircleTransform()).centerCrop().fit().into(binding.hulkImage)
 
-        Picasso.get().load(list.get(topItem)).transform(CircleTransform()).centerCrop().fit().into(binding.natashaImage)
+        Picasso.get().load(list.get(topItem % 5)).transform(CircleTransform()).centerCrop().fit().into(binding.natashaImage)
     }
 
     private fun fadeInAnimation(): Animation {
