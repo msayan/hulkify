@@ -6,6 +6,7 @@ import android.media.MediaPlayer
 import android.os.Bundle
 import android.os.Handler
 import android.support.v7.app.AppCompatActivity
+import android.support.v7.widget.AppCompatSeekBar
 import android.view.View
 import android.widget.Button
 import android.widget.ImageButton
@@ -16,10 +17,11 @@ import java.util.*
 
 class LokiActivity : AppCompatActivity() {
 
-    lateinit var lokiView: ImageView
-    lateinit var sounds: ArrayList<Int>
-    lateinit var leftPunch: ImageButton
-    lateinit var rightPunch: ImageButton
+    private lateinit var lokiView: ImageView
+    private lateinit var sounds: ArrayList<Int>
+    private lateinit var leftPunch: ImageButton
+    private lateinit var rightPunch: ImageButton
+    private lateinit var seekBar: AppCompatSeekBar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,6 +31,7 @@ class LokiActivity : AppCompatActivity() {
         leftPunch = findViewById(R.id.left_fist)
         rightPunch = findViewById(R.id.right_fist)
         lokiView = findViewById(R.id.loki_image)
+        seekBar = findViewById(R.id.seekbar_game)
 
         sounds = arrayListOf(R.raw.punch1, R.raw.punch2, R.raw.punch3)
 
@@ -36,8 +39,7 @@ class LokiActivity : AppCompatActivity() {
         mp.isLooping = true
         mp.start()
 
-        startButton.setOnClickListener { startButton.visibility = View.GONE; }
-        setListenerss()
+        startButton.setOnClickListener { startButton.visibility = View.GONE; setListenerss() }
 
     }
 
@@ -46,7 +48,7 @@ class LokiActivity : AppCompatActivity() {
         rightPunch.setOnClickListener { punchFromRight() }
     }
 
-    fun punchFromLeft() {
+    private fun punchFromLeft() {
         val path = Path()
         path.arcTo(0f, 0f, 200f, 1000f, 270f, -180f, true)
         val animator = ObjectAnimator.ofFloat(leftPunch, View.X, View.Y, path)
@@ -58,7 +60,7 @@ class LokiActivity : AppCompatActivity() {
         playSound()
     }
 
-    fun punchFromRight() {
+    private fun punchFromRight() {
         val path = Path()
         path.arcTo(0f, 0f, 1500f, 1000f, 270f, -180f, true)
         val animator = ObjectAnimator.ofFloat(rightPunch, View.X, View.Y, path)
@@ -70,7 +72,7 @@ class LokiActivity : AppCompatActivity() {
         playSound()
     }
 
-    fun playSound() {
+    private fun playSound() {
         val random = Random().nextInt(3)
         val mp = MediaPlayer.create(this, sounds[random])
         mp.start()

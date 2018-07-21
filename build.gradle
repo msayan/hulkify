@@ -35,7 +35,7 @@ ext{
     buildToolsVersion = '27.0.3'
     compileSdkVersion = 27
     targetSdkVersion = 27
-    minSdkVersion = 19
+    minSdkVersion = 21
 
     supportLibVersion = '27.1.0'
     rxJavaVersion = '2.1.14'

@@ -11,7 +11,7 @@
         android:layout_height="200dp"
         android:layout_gravity="center"
         android:contentDescription="@string/app_name"
-        android:src="@drawable/hulk"
+        android:src="@drawable/hulk_logo"
         android:visibility="gone" />
 
 

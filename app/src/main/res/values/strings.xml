@@ -11,4 +11,6 @@
     <string name="contact_search_query_hint">Avengers ekibinde ara..</string>
     <string name="find_friend">Arkadaş Bul\n(1)</string>
     <string name="listen_music">Müzik Dinle\n(1)</string>
+    <string name="calm">Sakin</string>
+    <string name="angry">Sinirli</string>
 </resources>

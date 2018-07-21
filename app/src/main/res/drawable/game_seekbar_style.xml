@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@android:id/background"
+        android:drawable="@drawable/game_seekbar_progress" />
+
+    <item android:id="@android:id/progress">
+        <color android:color="@android:color/transparent" />
+    </item>
+</layer-list>

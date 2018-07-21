@@ -37,7 +37,7 @@ class ShakeNotificationBuilder(private val contextWeakRef: WeakReference<Context
                 PendingIntent.FLAG_UPDATE_CURRENT)
 
         return NotificationCompat.Builder(context!!, DETECT_CHANNEL)
-                .setSmallIcon(R.drawable.hulk)
+                .setSmallIcon(R.drawable.hulk_logo)
                 .setContentIntent(intent)
                 .setVisibility(VISIBILITY_PRIVATE)
                 .setContentTitle(context?.getString(R.string.app_name))
