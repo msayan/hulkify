@@ -17,9 +17,9 @@
 
         <LinearLayout
             android:id="@+id/appbar"
-            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"
@@ -34,9 +34,10 @@
                         android:id="@+id/back_button"
                         android:layout_width="48dp"
                         android:layout_height="48dp"
-                        android:paddingTop="8dp"
                         android:paddingBottom="8dp"
+                        android:tint="@color/white"
                         android:paddingEnd="16dp"
+                        android:paddingTop="8dp"
                         android:src="@drawable/ic_arrow_back_black_24dp" />
 
                     <ImageView
@@ -58,7 +59,7 @@
                 android:layout_marginStart="16dp"
                 android:text="Merhaba Bruce!"
                 android:textColor="@color/white"
-                android:textSize="30sp" />
+                android:textSize="32sp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -67,8 +68,8 @@
                 android:layout_marginEnd="16dp"
                 android:layout_marginStart="16dp"
                 android:text="Bugün ajandan önemli olanları senin için getirdim"
-                android:textColor="@color/white"
-                android:textSize="20sp" />
+                android:textColor="#b3ffffff"
+                android:textSize="16sp" />
 
         </LinearLayout>
 
@@ -89,6 +90,7 @@
             android:foreground="?selectableItemBackgroundBorderless"
             android:gravity="center"
             android:padding="16dp"
+            android:onClick="@{() -> viewModel.beatLoki()}"
             android:text="Hulk'a Dönüş"
             android:textColor="@color/white"
             android:textSize="20sp" />
