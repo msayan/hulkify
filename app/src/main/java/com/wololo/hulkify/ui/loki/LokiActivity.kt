@@ -22,6 +22,7 @@ class LokiActivity : AppCompatActivity() {
     private lateinit var leftPunch: ImageButton
     private lateinit var rightPunch: ImageButton
     private lateinit var seekBar: AppCompatSeekBar
+    private lateinit var mp : MediaPlayer
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,12 +36,30 @@ class LokiActivity : AppCompatActivity() {
 
         sounds = arrayListOf(R.raw.punch1, R.raw.punch2, R.raw.punch3)
 
-        val mp = MediaPlayer.create(this, R.raw.dp_starwars)
+        mp = MediaPlayer.create(this, R.raw.dp_starwars)
         mp.isLooping = true
         mp.start()
 
         startButton.setOnClickListener { startButton.visibility = View.GONE; setListenerss() }
 
+
+        Timer().schedule(object : TimerTask() {
+            override fun run() {
+                runOnUiThread { decreaseProgress() }
+            }
+        }, 0, 1000)
+
+    }
+
+    private fun decreaseProgress() {
+        if (seekBar.progress >= 3)
+            seekBar.progress = seekBar.progress - 3
+    }
+
+
+    private fun increaseProgress() {
+        if (seekBar.progress < 95)
+            seekBar.progress = seekBar.progress + 5
     }
 
     private fun setListenerss() {
@@ -56,7 +75,9 @@ class LokiActivity : AppCompatActivity() {
         animator.start()
 
         Handler().postDelayed({ lokiView.setImageResource(R.drawable.loki2) }, 300)
-        lokiView.setImageResource(R.drawable.loki_leftside)
+        lokiView.setImageResource(R.drawable.loki_rightside)
+
+        increaseProgress()
         playSound()
     }
 
@@ -68,8 +89,14 @@ class LokiActivity : AppCompatActivity() {
         animator.start()
 
         Handler().postDelayed({ lokiView.setImageResource(R.drawable.loki2) }, 300)
-        lokiView.setImageResource(R.drawable.loki_rightside)
+        lokiView.setImageResource(R.drawable.loki_leftside)
+        increaseProgress()
         playSound()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        mp.release()
     }
 
     private fun playSound() {
