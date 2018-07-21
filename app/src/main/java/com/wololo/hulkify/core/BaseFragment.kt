@@ -1,7 +1,7 @@
 package com.wololo.hulkify.core
 
 import android.arch.lifecycle.ViewModelProviders
-import android.databinding.DataBindingUtil
+import android.content.Context
 import android.databinding.ViewDataBinding
 import android.os.Bundle
 import android.support.annotation.LayoutRes
@@ -9,27 +9,37 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.wololo.hulkify.utils.extensions.bindingInflate
 
-abstract class BaseFragment<VM : BaseViewModel, DB : ViewDataBinding>(private val mViewModelClass: Class<VM>) : Fragment() {
-    lateinit var viewModel: VM
-    open lateinit var binding: DB
-    fun init(inflater: LayoutInflater, container: ViewGroup) {
-        binding = DataBindingUtil.inflate(inflater, getLayoutRes(), container, false)
-    }
-    open fun init() {}
+abstract class BaseFragment<VM : BaseViewModel, DB : ViewDataBinding> : Fragment() {
+
     @LayoutRes
     abstract fun getLayoutRes(): Int
-    private fun getViewM(): VM = ViewModelProviders.of(this).get(mViewModelClass)
-    open fun onInject() {}
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        viewModel = getViewM()
+
+    abstract fun getViewModelKey(): Class<VM>
+
+    lateinit var binding: DB
+
+    val viewModel by lazy {
+        ViewModelProviders.of(this).get(getViewModelKey())
     }
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View {
-        init(inflater, container!!)
-        init()
-        super.onCreateView(inflater, container, savedInstanceState)
+
+    /**
+     * If you want to inject Dependency Injection
+     * on your activity, you can override this.
+     */
+    open fun onInject() {}
+
+    override fun onAttach(context: Context?) {
+        super.onAttach(context)
+        onInject()
+    }
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        binding = container?.bindingInflate<DB>(getLayoutRes())!!
+        initViewModel(viewModel)
         return binding.root
     }
+
+    abstract fun initViewModel(viewModel: VM)
 }

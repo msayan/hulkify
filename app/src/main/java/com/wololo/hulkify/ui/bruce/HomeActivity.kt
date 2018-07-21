@@ -1,10 +1,12 @@
 package com.wololo.hulkify.ui.bruce
 
+import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import com.wololo.hulkify.R
 import com.wololo.hulkify.core.BaseActivity
 import com.wololo.hulkify.databinding.ActivityHomeBinding
+import com.wololo.hulkify.ui.contacts.ContactsFragment
 import com.wololo.hulkify.ui.dashboard.DashboardFragment
 
 class HomeActivity : BaseActivity<HomeViewModel, ActivityHomeBinding>() {
@@ -22,21 +24,21 @@ class HomeActivity : BaseActivity<HomeViewModel, ActivityHomeBinding>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        DataBindingUtil.setContentView<ActivityHomeBinding>(this, getLayoutRes())
 
         init()
     }
 
     private fun init() {
-        supportFragmentManager.beginTransaction().replace(R.id.container, DashboardFragment()).commit()
+        supportFragmentManager.beginTransaction().replace(R.id.fragment_container, DashboardFragment()).commit()
         binding.navigation.setOnNavigationItemSelectedListener {
-            val fragment: Fragment
-            when (it.itemId) {
-                R.id.home_fragment -> fragment = DashboardFragment()
-                R.id.contacts_fragment -> fragment = DashboardFragment() // TODO : contacts fragment
-                else -> fragment = DashboardFragment() // TODO : inbox fragment
+            val fragment: Fragment = when (it.itemId) {
+                R.id.home_fragment -> DashboardFragment()
+                R.id.contacts_fragment -> ContactsFragment()
+                else -> DashboardFragment() // TODO : inbox fragment
             }
 
-            this@HomeActivity.supportFragmentManager.beginTransaction().replace(R.id.container, fragment).commit()
+            this@HomeActivity.supportFragmentManager.beginTransaction().replace(R.id.fragment_container, fragment).commit()
             return@setOnNavigationItemSelectedListener true
         }
 

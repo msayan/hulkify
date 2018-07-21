@@ -38,7 +38,9 @@
         <activity android:name=".ui.gallery.GalleryActivity" android:theme="@style/AppTheme.NoActionBar" />
 
         <activity android:name=".ui.game.GameActivity" />
-        <activity android:name=".ui.bruce.HomeActivity" />
+        <activity
+            android:name=".ui.bruce.HomeActivity"
+            android:theme="@style/AppTheme.Bruce" />
         <activity android:name=".ui.hulk.HulkHomeActivity" />
 
         <!--TODO:put your fabric api key here-->
