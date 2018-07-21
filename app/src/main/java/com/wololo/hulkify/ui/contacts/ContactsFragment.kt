@@ -27,6 +27,11 @@ class ContactsFragment : BaseFragment<ContactsViewModel, FragmentContactsBinding
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.setLifecycleOwner(this)
+        initRecyclerView()
+        initSearchView()
+    }
+
+    private fun initRecyclerView() {
         binding.recyclerviewConctacts.addItemDecoration(MarginItemDecoration(8, 1))
         binding.recyclerviewConctacts.adapter = ContactsAdapter(object : (ConctactEntity) -> Unit {
             override fun invoke(contact: ConctactEntity) {
@@ -34,7 +39,14 @@ class ContactsFragment : BaseFragment<ContactsViewModel, FragmentContactsBinding
                 activity?.startActivity(dialIntent)
             }
         })
+    }
 
+    private fun initSearchView() {
+        binding.searchView.onActionViewExpanded()
+        binding.searchView.isIconified = true
+        binding.searchView.post {
+            binding.searchView.clearFocus()
+        }
         binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextChange(newText: String?): Boolean {
                 newText?.let { viewModel.filterList(newText) }
